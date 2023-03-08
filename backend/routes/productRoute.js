@@ -11,7 +11,7 @@ router.route('/product/:id').put(updateProduct)
 
 router.route('/product/:id').delete(productDelete)
 
-router.route('/product/:id').delete(getProductDetail)
+router.route('/product/:id').get(getProductDetail)
 
 
 

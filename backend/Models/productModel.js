@@ -1,10 +1,13 @@
 const mongoose = require("mongoose")
 
+const firstNameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+
 const productSchema = new mongoose.Schema({
 
     name:{
         type : String,
         required : [true , "Please Enter product Name"],
+        // match : [firstNameRegex , "First Name regex is Not match"],
         trim : true
     },
     description:{
@@ -20,7 +23,7 @@ const productSchema = new mongoose.Schema({
         type:Number,
         default:0
     },
-    imgaes:[
+    images:[
         {
             public_id:{
                 type:String,
@@ -39,7 +42,7 @@ const productSchema = new mongoose.Schema({
     Stock:{
         type:Number,
         required:[true,"Please Enter Product Stock"],
-        maxLength : [4,"Stocj cannot exceed 4 character"],
+        maxLength : [4,"Stock cannot exceed 4 character"],
         default : 1
     },
     numOfReviews:{
@@ -70,3 +73,6 @@ const productSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model("Product" , productSchema)
+
+
+
